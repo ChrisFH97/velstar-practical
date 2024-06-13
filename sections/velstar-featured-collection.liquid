@@ -22,7 +22,7 @@
             <div>
                 <div class="flex justify-center mt-4 w-full">
                 {% for variant in product.variants %}
-                    <div class="w-[13px] h-[13px] rounded-full mx-1 cursor-pointer" style="background-color: {{ variant.metafields.custom.variant_color }};"></div>
+                    <div class="w-[13px] h-[13px] rounded-full mx-1 cursor-pointer" style="background-color: {{ variant.metafields.custom.variant_color }};" aria-label="Variant Color - {{ variant.title }}"></div>
                 {% endfor %}
                 </div>
             </div>
