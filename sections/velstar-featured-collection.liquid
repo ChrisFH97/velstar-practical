@@ -1,0 +1,79 @@
+<!-- Include Swiper's CSS and JavaScript -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js" defer></script>
+
+<section aria-labelledby="mens-summer-tops" class="py-8 px-10 overflow-hidden font-Roboto">
+  <div class="max-w-desktop mx-auto">
+    <h2 id="mens-summer-tops" class="text-2xl text-[24px] font-bold mb-6">{{ section.settings.collection.title | capitalize }}</h2>
+    <div class="swiper-container ">
+      <div class="swiper-wrapper">
+        {% for product in section.settings.collection.products %}
+            <div class="swiper-slide product text-center mb-4 w-full md:w-1/2 lg:w-1/4 pr-2.5" role="listitem">
+            <div class="flex justify-between items-center">
+                <h3 class="text-cardText font-semibold">{{ product.title }}</h3>
+                <p class="text-gray-500 text-cardText">{{ product.price | money }}</p>
+            </div>
+
+            <a href="{{ product.url }}" aria-label="{{ product.title }}">
+                <img src="{{ product.featured_image | image_url: width: '324x' }}" width="324" height="324" alt="{{ product.title }}" class="w-full object-cover mb-4 rounded">
+                <p class="text-sm text-gray-700">{{ product.description | strip_html | truncate: 80 }}</p>
+            </a>
+
+            <div>
+                <div class="flex justify-center mt-4 w-full">
+                {% for variant in product.variants %}
+                    <div class="w-[13px] h-[13px] rounded-full mx-1 cursor-pointer" style="background-color: {{ variant.metafields.custom.variant_color }};"></div>
+                {% endfor %}
+                </div>
+            </div>
+            </div>
+        {% endfor %}
+
+      </div>
+    </div>
+
+    <a href="{{ section.settings.collection.url }}" class="flex font-bold items-center text-cardText text-black">
+        See everything
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="16" viewBox="0 0 22 16" fill="none" class="ml-5 animate-slideRight">
+            <path d="M1 7C0.447715 7 0 7.44772 0 8C0 8.55228 0.447715 9 1 9V7ZM21.7071 8.70711C22.0976 8.31658 22.0976 7.68342 21.7071 7.29289L15.3431 0.928932C14.9526 0.538408 14.3195 0.538408 13.9289 0.928932C13.5384 1.31946 13.5384 1.95262 13.9289 2.34315L19.5858 8L13.9289 13.6569C13.5384 14.0474 13.5384 14.6805 13.9289 15.0711C14.3195 15.4616 14.9526 15.4616 15.3431 15.0711L21.7071 8.70711ZM1 9H21V7H1V9Z" fill="black"/>
+        </svg>
+    </a>
+  </div>
+</section>
+
+<script defer>
+  document.addEventListener('DOMContentLoaded', function () {
+    var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 1,
+      spaceBetween: 10,
+      breakpoints: {
+        768: {
+          slidesPerView: 2
+        },
+        1024: {
+          slidesPerView: 4
+        }
+      }
+    });
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "Velstar Collection",
+    "settings": [
+      {
+        "type": "collection",
+        "id": "collection",
+        "label": "Collection"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Velstar Collection",
+        "category": "Velstar"
+      }
+    ]
+  }
+  {% endschema %}
+  

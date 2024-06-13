@@ -3,7 +3,7 @@
     
     <div class="circle relative w-full md:w-1/2 px-6 mb-8 md:mb-0 rounded-full md:py-40 md:px-20 md:py-32 md:px-16 sm:py-24 sm:px-12 py-16 px-8">
     
-      <div class="relative z-10">
+      <div class="relative z-10 font-Roboto">
         
         <h4 class="text-primary-darkGray text-subheading font-bold">{{ section.settings.subheading }}</h4>
         <h1 id="next-generation" class="text-4xl md:text-h1 my-5 font-bold text-black leading-none">{{ section.settings.heading }}</h1>
@@ -15,7 +15,7 @@
         <div class="mt-6 flex w-full flex-col md:flex-row">
 
           {% if section.settings.button_text != blank %}
-            <a href="{{ section.settings.button_link }}" class="w-full inline-flex items-center justify-center px-6 py-3 text-h4 w-1/2 min-w-heroButton font-medium text-white bg-primary-blue shadow-sm outline-none min-h-heroButton">
+            <a href="{{ section.settings.button_link }}" class="w-full inline-flex items-center justify-center px-6 py-3 text-subheading w-1/2 min-w-heroButton font-medium text-white bg-primary-blue shadow-sm outline-none min-h-heroButton">
               {{ section.settings.button_text }}             
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="16" viewBox="0 0 22 16" fill="none" class="ml-5 {% if section.settings.arrow_animation %}animate-slideRight{% endif %}">
                 <path d="M1 7C0.447715 7 0 7.44772 0 8C0 8.55228 0.447715 9 1 9V7ZM21.7071 8.70711C22.0976 8.31658 22.0976 7.68342 21.7071 7.29289L15.3431 0.928932C14.9526 0.538408 14.3195 0.538408 13.9289 0.928932C13.5384 1.31946 13.5384 1.95262 13.9289 2.34315L19.5858 8L13.9289 13.6569C13.5384 14.0474 13.5384 14.6805 13.9289 15.0711C14.3195 15.4616 14.9526 15.4616 15.3431 15.0711L21.7071 8.70711ZM1 9H21V7H1V9Z" fill="white"/>
@@ -25,7 +25,7 @@
 
 
           {%- if section.settings.button_text2 != blank -%}
-            <a href="{{ section.settings.button_link2 }}" class="w-full mt-5 md:mt-0 md:ml-4 inline-flex items-center justify-center px-6 py-3 text-h4 w-1/2 min-w-heroButton font-medium text-black border border-black shadow-sm outline-none min-h-heroButton">
+            <a href="{{ section.settings.button_link2 }}" class="w-full mt-5 md:mt-0 md:ml-4 inline-flex items-center justify-center px-6 py-3 text-subheading w-1/2 min-w-heroButton font-medium text-black border border-black shadow-sm outline-none min-h-heroButton">
               {{ section.settings.button_text2 }}
             </a>
           {%- endif -%}

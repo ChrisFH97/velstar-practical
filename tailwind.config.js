@@ -10,6 +10,7 @@ module.exports = {
         "h4": "21px",
         "h5": "21px",
         "subheading": "clamp(16px, 2vw, 23px)",
+        "cardText": "clamp(14px, 2vw, 16px)",
       },
       colors: {
         "primary": {
@@ -43,6 +44,9 @@ module.exports = {
           '50%': { transform: 'translateX(25%)' },
           '100%': { transform: 'translateX(0)' }
         },
+      },
+      fontFamily: {
+        Roboto: ['Roboto', 'sans-serif'],
       },
       animation: {
         float: 'float 3s ease-in-out infinite',
